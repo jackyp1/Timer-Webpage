@@ -1,0 +1,351 @@
+<!DOCTYPE HTML>
+<html>
+	<body>
+		<TITLE> Timer </TITLE>
+
+
+		<button style="position: absolute; left: 240px; width:100; height:50;" type="button" onclick="Time()"> <br> Start timer <br> </button>
+		<button style="position: absolute; left: 350px; width:100; height:50;" type="button" onclick="reset()"> <br>      Reset     <br> </button>
+		<button style="position: absolute; left: 460px; width:100; height:50;" type="button" onclick="stop()"> <br>        Stop      <br> </button> <br><br>
+
+
+		<img src="0.jpg" width="150" height="300" id="mt" style="position: absolute;">
+		<img src="0.jpg" width="150" height="300" id="mu" style="position: absolute; left: 170px;">
+		<img src="0.jpg" width="150" height="300" id="st" style="position: absolute; left: 370px;">
+		<img src="0.jpg" width="150" height="300" id="su" style="position: absolute; left: 540px;"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+		Duration of timer(mins):
+		<select id="durm">
+			<option value='0'>0 minutes</option>
+			<option value='1'>1 minute</option>
+			<option value='2'>2 minutes</option>
+			<option value='3'>3 minutes</option>
+			<option value='4'>4 minutes</option>
+			<option value="5">5 minutes</option>
+			<option value='6'>6 minutes</option>
+			<option value='7'>7 minutes</option>
+			<option value='8'>8 minutes</option>
+			<option value='9'>9 minutes</option>
+			<option value='10' selected>10 minutes</option>
+			<option value='11'>11 minutes</option>
+			<option value='12'>12 minutes</option>
+			<option value='13'>13 minutes</option>
+			<option value='14'>14 minutes</option>
+			<option value='15'>15 minutes</option>
+			<option value='16'>16 minutes</option>
+			<option value='17'>17 minutes</option>
+			<option value='18'>18 minutes</option>
+			<option value='19'>19 minutes</option>
+			<option value='20'>20 minutes</option>
+			<option value='21'>21 minutes</option>
+			<option value='22'>22 minutes</option>
+			<option value='23'>23 minutes</option>
+			<option value='24'>24 minutes</option>
+			<option value='25'>25 minutes</option>
+			<option value='26'>26 minutes</option>
+			<option value='27'>27 minutes</option>
+			<option value='28'>28 minutes</option>
+			<option value='29'>29 minutes</option>
+			<option value='30'>30 minutes</option>
+			<option value='31'>31 minutes</option>
+			<option value='32'>32 minutes</option>
+			<option value='33'>33 minutes</option>
+			<option value='34'>34 minutes</option>
+			<option value='35'>35 minutes</option>
+			<option value='36'>36 minutes</option>
+			<option value='37'>37 minutes</option>
+			<option value='38'>38 minutes</option>
+			<option value='39'>39 minutes</option>
+			<option value='40'>40 minutes</option>
+			<option value='41'>41 minutes</option>
+			<option value='42'>42 minutes</option>
+			<option value='43'>43 minutes</option>
+			<option value='44'>44 minutes</option>
+			<option value='45'>45 minutes</option>
+			<option value='46'>46 minutes</option>
+			<option value='47'>47 minutes</option>
+			<option value='48'>48 minutes</option>
+			<option value='49'>49 minutes</option>
+			<option value='50'>50 minutes</option>
+			<option value='51'>51 minutes</option>
+			<option value='52'>52 minutes</option>
+			<option value='53'>53 minutes</option>
+			<option value='54'>54 minutes</option>
+			<option value='55'>55 minutes</option>
+			<option value='56'>56 minutes</option>
+			<option value='57'>57 minutes</option>
+			<option value='58'>58 minutes</option>
+			<option value='59'>59 minutes</option>
+		</select>
+
+		Any extra seconds?
+		<select id="durs">
+			<option value="0" selected>0 seconds</option>
+			<option value=1>1 second</option>
+			<option value=2>2 seconds</option>
+			<option value=3>3 seconds</option>
+			<option value=4>4 seconds</option>
+			<option value=5>5 seconds</option>
+			<option value=6>6 seconds</option>
+			<option value=7>7 seconds</option>
+			<option value=8>8 seconds</option>
+			<option value=9>9 seconds</option>
+			<option value=10>10 seconds</option>
+			<option value=11>11 seconds</option>
+			<option value=12>12 seconds</option>
+			<option value=13>13 seconds</option>
+			<option value=14>14 seconds</option>
+			<option value=15>15 seconds</option>
+			<option value=16>16 seconds</option>
+			<option value=17>17 seconds</option>
+			<option value=18>18 seconds</option>
+			<option value=19>19 seconds</option>
+			<option value=20>20 seconds</option>
+			<option value=21>21 seconds</option>
+			<option value=22>22 seconds</option>
+			<option value=23>23 seconds</option>
+			<option value=24>24 seconds</option>
+			<option value=25>25 seconds</option>
+			<option value=26>26 seconds</option>
+			<option value=27>27 seconds</option>
+			<option value=28>28 seconds</option>
+			<option value=29>29 seconds</option>
+			<option value=30>30 seconds</option>
+			<option value=31>31 seconds</option>
+			<option value=32>32 seconds</option>
+			<option value=33>33 seconds</option>
+			<option value=34>34 seconds</option>
+			<option value=35>35 seconds</option>
+			<option value=36>36 seconds</option>
+			<option value=37>37 seconds</option>
+			<option value=38>38 seconds</option>
+			<option value=39>39 seconds</option>
+			<option value=40>40 seconds</option>
+			<option value=41>41 seconds</option>
+			<option value=42>42 seconds</option>
+			<option value=43>43 seconds</option>
+			<option value=44>44 seconds</option>
+			<option value=45>45 seconds</option>
+			<option value=46>46 seconds</option>
+			<option value=47>47 seconds</option>
+			<option value=48>48 seconds</option>
+			<option value=49>49 seconds</option>
+			<option value=50>50 seconds</option>
+			<option value=51>51 seconds</option>
+			<option value=52>52 seconds</option>
+			<option value=53>53 seconds</option>
+			<option value=54>54 seconds</option>
+			<option value=55>55 seconds</option>
+			<option value=56>56 seconds</option>
+			<option value=57>57 seconds</option>
+			<option value=58>58 seconds</option>
+			<option value=59>59 seconds</option>
+		</select>
+
+		<br>
+
+		Ringtone:
+		<select id='ringtone'>
+			<option value='cartoon054.mp3'>Cartoon boing</option>
+			<option value='Alarm-clock-sound-short.mp3'selected>Old alarm clock</option>
+			<option value='High-pitch-electronic.mp3'>High pitch electronic alarm clock</option>
+			<option value='Low-pitch-electronic.mp3'>Low pitch electronic alarm clock</option>
+		</select>
+
+		<script type="text/javascript">
+      var number=new Array();//number to be shown is in an array,so that it can be easily cycled through
+			number[0]="0.jpg"
+			number[1]="1.jpg"
+			number[2]="2.jpg"
+			number[3]="3.jpg"
+			number[4]="4.jpg"
+			number[5]="5.jpg"
+			number[6]="6.jpg"
+			number[7]="7.jpg"
+			number[8]="8.jpg"
+			number[9]="9.jpg"
+
+			var min = document.getElementById('durm').value;//sources the current time from the select boxes when loaded
+			var sec = document.getElementById('durs').value;//the select boxes stay the same when the page is reloaded
+																											//This allows for the window to be reloaded to stop all future timeouts
+																											//and then carry on from where it was left off.
+
+
+			var minu = min%10;//finds the unit integer from the selected minutes
+			var mint = (min-minu)/10;//finds the 'tens' integer from the selected minutes
+			var secu = sec%10;//same as minu but for seconds
+			var sect = (sec-secu)/10;//same as mint but sor seconds
+
+			document.getElementById('mu').src=number[minu];//sources the number image for the minute units
+			document.getElementById('mt').src=number[mint];//sources the number image for the minute tens
+			document.getElementById('su').src=number[secu];//sources the number image for the seconds units
+			document.getElementById('st').src=number[sect];//sources the number image for the seconds tens
+
+			var start;
+
+			function reset()
+				{
+				var minbox = document.getElementById('durm');//assigns a variable to the minute select box
+				var secbox = document.getElementById('durs');//assigns a variable to the seconds select box
+				secbox.selectedIndex=0;//sets second box to 0
+				minbox.selectedIndex=0;//sets minute box to 0
+				location.reload();//reloads page to stop future timeouts and the display is sourced as 00:00
+				}
+
+			function stop()
+				{
+				var stop = Date.now();
+				var dif = stop-start;
+				if(dif>0)
+					{
+					var mindu=document.getElementById('durm');
+					minduri=parseInt(mindu.value);
+					var ti=minduri*60*1000;
+					var secdu=document.getElementById('durs');
+					secduri=parseInt(secdu.value);
+					ti=ti+secduri*1000;
+					var tlefti=ti-dif;
+					var tleftsi=parseInt(tlefti/1000);
+					var secondsi=tleftsi%60
+					var minutesi=(tleftsi-secondsi)/60;
+					mindu.selectedIndex=minutesi;
+					secdu.selectedIndex=secondsi;
+					location.reload();
+					}
+				}
+
+			function pla()
+			{
+			end=new Audio(document.getElementById('ringtone').value)
+			end.play();
+			}
+
+			function Time()
+			{
+			var mindur=document.getElementById("durm");
+			mindur=parseInt(mindur.value);
+			var b=mindur%10;
+			var a=mindur-b;
+			a=a/10;
+
+			start = Date.now();
+
+			var secdur=document.getElementById("durs");
+			secdur=parseInt(secdur.value);
+			var d=secdur%10;
+			var c=secdur-d;
+			c=c/10;
+
+			var ai=a;
+			var bi=b;
+			var ci=c;
+			var di=d;
+
+			slide(a, b, c, d);
+
+			var runa=true;
+			var runb=true;
+			var runc=true;
+
+			if(a==0)
+				{
+				runa=false;
+				}
+			if(b==0&&runa==false)
+				{
+				runb=false;
+				}
+			if(c==0&&runb==false)
+				{
+				runc=false;
+				}
+
+			var i=1;
+			var count=(mindur*60)+secdur;
+
+			while(i<36005)
+				{
+				if(a==0&&b==0&&c==0&&d==0)
+					{
+					window.setTimeout('pla()',ai*600000+bi*60000+ci*10000+di*1000);
+					window.setTimeout('pla()',ai*600000+bi*60000+ci*10000+di*1000+1100);
+
+					window.setTimeout('pla()',ai*600000+bi*60000+ci*10000+di*1000+7200);
+					window.setTimeout('pla()',ai*600000+bi*60000+ci*10000+di*1000+8300);
+					window.setTimeout('pla()',ai*600000+bi*60000+ci*10000+di*1000+9400);
+
+					window.setTimeout('pla()',ai*600000+bi*60000+ci*10000+di*1000+15500);
+					window.setTimeout('pla()',ai*600000+bi*60000+ci*10000+di*1000+16600);
+					window.setTimeout('pla()',ai*600000+bi*60000+ci*10000+di*1000+17700);
+					window.setTimeout('pla()',ai*600000+bi*60000+ci*10000+di*1000+18800);
+					window.setTimeout('pla()',ai*600000+bi*60000+ci*10000+di*1000+19900);
+					window.setTimeout('pla()',ai*600000+bi*60000+ci*10000+di*1000+21000);
+					window.setTimeout('pla()',ai*600000+bi*60000+ci*10000+di*1000+22100);
+					window.setTimeout('pla()',ai*600000+bi*60000+ci*10000+di*1000+23200);
+					window.setTimeout('pla()',ai*600000+bi*60000+ci*10000+di*1000+24300);
+					window.setTimeout('pla()',ai*600000+bi*60000+ci*10000+di*1000+25400);
+					break;
+					}
+
+				if(count%600==0&&runa==true)
+					{
+					a=a-1;
+					if(a<0)
+						{
+						a=5;
+						}
+					if(a==0)
+						{
+						runa=false;
+						}
+					}
+
+				if(count%60==0&&runb==true)
+					{
+					b=b-1;
+					if(b<0)
+						{
+						b=9;
+						}
+					if(b==0&&runa==false)
+						{
+						runb=false;
+						}
+					}
+
+				if(count%10==0&&runc==true)
+					{
+					c=c-1;
+					if(c<0)
+						{
+						c=5;
+						}
+					if(c==0&&runb==false)
+						{
+						runc=false;
+						}
+					}
+
+				d=d-1;
+				if(d<0)
+					{
+					d=9;
+					}
+
+				window.setTimeout('slide('+a+', '+b+', '+c+', '+d+')', i*1000);
+				i=i+1;
+				count=count-1
+				}
+			}
+
+
+			function slide(x, y, z, q)
+			{
+			document.getElementById("mt").src=number[x];
+			document.getElementById("mu").src=number[y];
+			document.getElementById("st").src=number[z];
+			document.getElementById("su").src=number[q];
+			}
+		</script>
+	</body>
+</html>
