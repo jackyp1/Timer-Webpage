@@ -194,54 +194,54 @@
 
 			function stop()
 				{
-				var stop = Date.now();
-				var dif = stop-start;
-				if(dif>0)
+				var stop = Date.now();// records curent date
+				var dif = stop-start;//calculates the time that the timer has been running in milleseconds
+				if(dif>0)//determines wether the timer has been running at all. This prevents unnecessary reloads of the page
 					{
-					var mindu=document.getElementById('durm');
-					minduri=parseInt(mindu.value);
-					var ti=minduri*60*1000;
-					var secdu=document.getElementById('durs');
-					secduri=parseInt(secdu.value);
-					ti=ti+secduri*1000;
-					var tlefti=ti-dif;
-					var tleftsi=parseInt(tlefti/1000);
-					var secondsi=tleftsi%60
-					var minutesi=(tleftsi-secondsi)/60;
-					mindu.selectedIndex=minutesi;
-					secdu.selectedIndex=secondsi;
-					location.reload();
+					var mindu=document.getElementById('durm');//selects the select box for minutes
+					minduri=parseInt(mindu.value);//records the value of the minutes select box
+					var ti=minduri*60*1000;//calculates the eexpected duation for minutes in milleseconds
+					var secdu=document.getElementById('durs');//selects the select box for seconds
+					secduri=parseInt(secdu.value);//recors the value of the seconds select box
+					ti=ti+secduri*1000;// add the seconds ont the set time for the timer to the minute expectation
+					var tlefti=ti-dif;// calculates time left in milleseconds
+					var tleftsi=parseInt(tlefti/1000);//converts the time to seconds and rounds the result
+					var secondsi=tleftsi%60//calculates the remainder of seconds left
+					var minutesi=(tleftsi-secondsi)/60;//subtracts remainder seconds and calclates minute left
+					mindu.selectedIndex=minutesi;//changes the minute select box to the number of minutes left
+					secdu.selectedIndex=secondsi;//changes the seconds select box to the number of seconds left
+					location.reload();//reloads the page to remove any previous timeouts. Does not change the select boxes, so they stay the same
 					}
 				}
 
 			function pla()
 			{
-			end=new Audio(document.getElementById('ringtone').value)
-			end.play();
+			end=new Audio(document.getElementById('ringtone').value)//sources the selected audio clip in the select box from the file
+			end.play();//plays the audio clip
 			}
 
 			function Time()
 			{
-			var mindur=document.getElementById("durm");
-			mindur=parseInt(mindur.value);
-			var b=mindur%10;
-			var a=mindur-b;
-			a=a/10;
+			var mindur=document.getElementById("durm");//selects the time from the minute select box
+			mindur=parseInt(mindur.value);//converts the data to an number as in the select box it is a string
+			var b=mindur%10;//finds the digit required for the units digit for minutes
+			var a=mindur-b;//finds the value for the tens section for the minutes
+			a=a/10;//finds the digit for the tens section for the minutes
 
-			start = Date.now();
+			start = Date.now();//records the date that the timer starts
 
-			var secdur=document.getElementById("durs");
-			secdur=parseInt(secdur.value);
-			var d=secdur%10;
-			var c=secdur-d;
-			c=c/10;
+			var secdur=document.getElementById("durs");//selects the time from the seconds select box
+			secdur=parseInt(secdur.value);//finds the integer value of the value in the select box
+			var d=secdur%10;//finds the units digit for the seconds
+			var c=secdur-d;//finds the tens value for the seconds
+			c=c/10;//finds the tens digit for the seconds
 
-			var ai=a;
-			var bi=b;
-			var ci=c;
-			var di=d;
-
-			slide(a, b, c, d);
+			var ai = a;//ther=se four variables are used for the timing of the alarms
+			var bi = b;
+			var ci = c;
+			var di = d;
+				
+			slide(a, b, c, d);//uses user created function to source the time that was selected by the user in the select boxes
 
 			var runa=true;
 			var runb=true;
@@ -249,23 +249,23 @@
 
 			if(a==0)
 				{
-				runa=false;
+				runa=false;//if the tens value for the minutes is 0, then it should not have the digit changed
 				}
 			if(b==0&&runa==false)
 				{
-				runb=false;
+				runb=false;//if the tens digit is 0 and this digit is 0, then this digit should not be changed
 				}
 			if(c==0&&runb==false)
 				{
-				runc=false;
+				runc=false;//if both the minute digits are 0 and this digit is 0, then this digit should not be changed
 				}
 
-			var i=1;
-			var count=(mindur*60)+secdur;
+			var i=1;//creates a loop variable
+			var count=(mindur*60)+secdur;//calculates the time that the timer is expected to run for in seconds
 
 			while(i<36005)
 				{
-				if(a==0&&b==0&&c==0&&d==0)
+				if(a==0&&b==0&&c==0&&d==0)//if all digits of the timer are 0, the alarms are set to play and the loop is broken
 					{
 					window.setTimeout('pla()',ai*600000+bi*60000+ci*10000+di*1000);
 					window.setTimeout('pla()',ai*600000+bi*60000+ci*10000+di*1000+1100);
@@ -287,64 +287,60 @@
 					break;
 					}
 
-				if(count%600==0&&runa==true)
+				if(count%600==0&&runa==true)//only operates if a is meant to run from the start and every 600 seconds(10 minutes)
 					{
-					a=a-1;
-					if(a<0)
-						{
-						a=5;
-						}
+					a=a-1;//the digit is decreased by 1
 					if(a==0)
 						{
-						runa=false;
+						runa=false;//if a is 0, the digit is prevented from changing in the future
 						}
 					}
 
-				if(count%60==0&&runb==true)
+				if(count%60==0&&runb==true)//only operates if b is meant to run and every 60 seconds
 					{
-					b=b-1;
+					b=b-1;// the digit is decreased by 1
 					if(b<0)
 						{
-						b=9;
+						b=9;// if the digit decreases below 0, it is reset to 9
 						}
 					if(b==0&&runa==false)
 						{
-						runb=false;
+						runb=false;//if this digit is 0 and the previous digit is 0, the digit is prevented from changing
 						}
 					}
 
-				if(count%10==0&&runc==true)
+				if(count%10==0&&runc==true)//this is every ten seconds if this digit is meant to run
 					{
-					c=c-1;
-					if(c<0)
+					c=c-1;// the digit is decreased by 1
+					if(c<0)//if c falls below 0, it is set to 5
 						{
 						c=5;
 						}
 					if(c==0&&runb==false)
 						{
-						runc=false;
+						runc=false;//if this digitis 0 and all previous digits are 0, the digit is prevented from running
 						}
 					}
 
-				d=d-1;
+				d=d-1;//the seconds unit digit is decreased by 1 every second
 				if(d<0)
 					{
-					d=9;
+					d=9;// if this digit falls below 0, it is set back up to 9
 					}
 
-				window.setTimeout('slide('+a+', '+b+', '+c+', '+d+')', i*1000);
-				i=i+1;
-				count=count-1
+				window.setTimeout('slide('+a+', '+b+', '+c+', '+d+')', i*1000);//sets a timeout for the digits to change
+				i=i+1;//i is increase by 1
+				count=count-1//count is decreased by 1
 				}
 			}
 
 
-			function slide(x, y, z, q)
+			function slide(x, y, z, q)//function is defined
 			{
-			document.getElementById("mt").src=number[x];
-			document.getElementById("mu").src=number[y];
-			document.getElementById("st").src=number[z];
-			document.getElementById("su").src=number[q];
+			document.getElementById("mt").src=number[x];//minute tens digit is sourced
+			document.getElementById("mu").src=number[y];//minute units digit is sourced
+			document.getElementById("st").src=number[z];//second tens digit is sourced
+			document.getElementById("su").src=number[q];//second units digit is sourced
 			}
 		</script>
 	</body>
